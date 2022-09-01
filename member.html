@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <title>메뉴 프레임</title>
+<style>
+.move
+{
+    border: 3px solid blue;
+    width: 290px;
+	height: 40px;
+	background-color: skyblue;
+	position: relative;
+	animation: boxmove 2s linear infinite alternate;
+}
+
+@keyframes boxmove
+{
+ from{left:0px;}
+ to{left: 150px;}
+}
+</style>
+<script src="account.js">
+</script>
+<script>
+var count=0;
+function loginCheck(){
+	for(var i=0;i<3;i++)
+	{
+		if(member_id[i]==logForm.member_id.value && member_psw[i]==logForm.member_psw.value)
+		{
+			alert(member_name[i]+"님이 로그인하셨습니다.");
+			return true;
+			count = 1;
+		}
+	}
+if(count==0)
+		{
+		    alert("아이디와 비밀번호를 확인하세요.");
+	        logForm.member_id.value="";
+	        logForm.member_psw.value="";
+			return false;			
+		}
+}
+</script>
+</head>
+<body background="images/cal.jpg" align ="center" text="black">
+      <form name="logForm" method="get" action="member.jsp" target="right3">
+        <fieldset>
+          <legend>Login</legend>
+          <p> 아이디 : <input type="text" name="member_id" value=""></p>
+          <p> 비밀번호 : <input type="password" name="member_psw" value=""></p>
+          <p align ="center"> 
+          <input type ="button" value="로그인" onClick="javascript:if(loginCheck()==true)submit()">
+          <input type ="reset" value="재작성">
+          </p>
+        </fieldset>
+     </form>
+<br><form><input type= "button" onClick="javescript:window.open('join.html')" value="회원가입하기" ></form><br>
+<br>
+<h3 class="move">로그인하면 노래가 나와요</h3>
+</body>
+</html>

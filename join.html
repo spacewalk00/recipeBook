@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<head>
+  <link type="text/css" rel="stylesheet" href="test.css"></link>
+<style>
+h1 { width:500px;
+     height: 50px;
+	 bgcolor: white;}
+</style>
+</head>
+<script src="account.js"></script>
+<script src="jquery-3.5.1.js"></script>
+<script>
+var count = 0;
+function idCheck(){
+    for(var i=0;i<3;i++)
+	{
+		if(member_id[i]==joinForm.member_id.value)
+		{
+			alert("입력하신 아이디는 사용중입니다. 다시 입력하세요.");
+			joinForm.member_id.value="";
+			count = 1;
+			parent.location.replace("join.html");
+		}
+	}
+	if(count==0)
+	{
+     alert("입력하신 아이디는 사용가능합니다.");
+	}
+}
+
+function joinCheck(){
+     if(joinForm.member_pw.value != joinForm.member_pw_check.value)
+	 {
+	     alert("동일한 비밀번호를 제대로 두 번 입력해야 합니다.");
+		 return false;
+	 }
+	 else
+	 {
+	     while(joinForm.member_id.value==""||joinForm.member_pw.value==""||joinForm.member_pw_check.value ==""||joinForm.member_name.value=="")
+	     {  
+	     alert("필수요소는 반드시 입력하세요");
+		 return false;
+		 joinForm.member_id.value="";
+	     joinForm.member_pw.value="";
+	     joinForm.member_pw_check.value="";
+		 joinForm.member_name.value="";
+	     }
+     return true;	 
+     }
+}
+</script>
+<body bgcolor="skyblue">
+<center>
+<br>
+<h1>&lt; 회원가입하기 &gt;</h1>
+<br>
+<table border="1" width="600" height="200" align="center" bgcolor="white">
+<form action="join.jsp" method="get" name="joinForm">
+   <tr>
+     <td align="center">아이디*</td>
+	 <td> 
+	      <input type="text" size = "12" name="member_id" value="">
+          <input type="button" name="id" onclick="idCheck()" value="중복검사">
+     </td>
+   </tr>
+   <tr>
+     <td align="center">비밀번호*</td>
+	 <td> <input type="password" name="member_pw" size="15" placeholder="비밀번호">
+	      비밀번호 확인*: <input type="password" name="member_pw_check" size="15" placeholder="비밀번호 확인"> 
+	 </td>
+   </tr> 
+   <tr>
+     <td align="center">이름*</td>
+	 <td><input type="text" name="member_name"></td>
+   </tr>
+   <tr>
+    <tr>
+     <td align="center">성별</td>
+	 <td> 
+	      <input type="radio" name="sex" value="male" > 남자
+	      <input type="radio" name="sex" value="female" > 여자
+	 </td>
+   </tr>
+   <tr>
+     <td align="center">생년월일</td>
+	 <td> 
+	<input type="text" id="year" size="1" maxlength="2"> 년
+	<input type="text" id="month" size="1" maxlength="2"> 월
+	<input type="text" id="date" size="1" maxlength="2"> 일
+    <input type="radio" name="calendar" checked> 양력
+	<input type="radio" name="calendar"> 음력
+	</td>
+   </tr>
+   <tr>
+     <td align="center">이메일</td>
+	 <td>
+	 <input type="email" name="myemail">
+	 </td>
+   </tr>
+   <tr>
+     <td align="center">이메일 수신</td>
+	 <td>
+	 <input type="radio" name= "수신여부"checked> 동의
+	 <input type="radio" name= "수신여부"> 비동의
+	 </td>
+   </tr>
+     <td colspan="2" align="center">
+	     <input type="button" value="가입하기" onClick="javascript:if(joinCheck()==true)submit()">
+		 <input type="reset" value="재입력">
+	 </td>
+   </tr>
+</form>
+</table>
+</center>
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <title>정유영의 홈페이지</title>
+ <style>
+   @keyframes bounce{
+	from, to{
+	bottom: 0px;
+	animation-timing-function: ease-out;}
+	50% {
+	bottom: 400px;
+	animation-timing-function: ease-in;
+	}
+    }	
+	p{
+	position:absolute; width: 40px; height: 40px; border-radius: 20px;
+	animation-name: bounce;
+	animation-iteration-count: infinite;
+	}
+	
+	#b1{ 
+	    right: 75%; background: yellow;
+	    animation-duration: 2s;
+		}
+	#b2{ 
+	    right: 20%; background: red;
+	    animation-duration: 2s;
+		}
+   h2 {border-top: 5px solid blue;
+       border-bottom: 5px solid blue;}
+
+</style>
+<script>
+function changeTime(){
+var today=new Date();
+frm.digClock.value =
+(1900+today.getYear())+"년 "+
+(today.getMonth()+1)+"월 "+
+(today.getDate())+"일 "+
+(today.getHours())+"시 "+
+(today.getMinutes())+"분 "+
+(today.getSeconds())+"초";
+
+setTimeout('changeTime()', 1000);
+}
+</script>
+</head>
+<body onLoad="changeTime()">
+<center>
+   <h2>레시피의 세계에 오신걸 환영합니다.</h2>
+<form name="frm">
+<input type="text" name="digClock" size="60px"></input>
+</form>
+<br>
+<br>
+<br>
+   <img src="images/mouse.png" float="center" width="500px" height="500px"></img>
+</center> 
+<p id="b1"></p>
+<p id="b2"></p>
+</body>
+</html>

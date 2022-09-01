@@ -1,0 +1,15 @@
+﻿div { text-align: center;}
+h1 {border: 2px solid black;}
+img {
+	   padding: 20px; margin: 20px;
+       box-shadow: 3px 3px 8px ;
+       position:relative; }
+.fp{
+      position:fixed;
+	  right: 5px;
+	  top: 5px;
+	  width: 50px;
+	  height: 50px;
+	  background: transparent;
+	  padding: 5px; margin: 5px;
+    }
